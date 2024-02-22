@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class TaskManager {
+    private final List<Task> tasks = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
+
+    public void addTask() {
+        System.out.println("Enter task title:");
+        String title = scanner.nextLine();
+        System.out.println("Enter task description:");
+        String description = scanner.nextLine();
+        tasks.add(new Task(title, description));
+        System.out.println("Task added successfully.");
+    }
+
+    public void listTasks() {
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks found.");
+            return;
+        }
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println((i + 1) + ". " + tasks.get(i));
+        }
+    }
+
+    // Additional methods to update and delete tasks could be added here
+
+    public static void main(String[] args) {
+        TaskManager manager = new TaskManager();
+        while (true) {
+            System.out.println("Task Manager Application");
+            System.out.println("1. Add Task");
+            System.out.println("2. List Tasks");
+            // Extend options for update, delete, etc.
+            System.out.println("Enter option: ");
+            int option = Integer.parseInt(manager.scanner.nextLine());
+
+            switch (option) {
+                case 1:
+                    manager.addTask();
+                    break;
+                case 2:
+                    manager.listTasks();
+                    break;
+                default:
+                    System.out.println("Invalid option, please choose again.");
+            }
+        }
+    }
+}
