@@ -56,16 +56,3 @@ public class TaskManager extends Application {
 
 
 
-public class Task {
-    private String title;
-    private String description;
-    private boolean completed;
-
-    public Task(String title, String description) {
-        this.title = title;
-        this.description = description;
-        this.completed = false;
-    }
-
-    // Getters and setters
-}
